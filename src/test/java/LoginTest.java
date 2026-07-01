@@ -1,12 +1,12 @@
-import Api.BaseApi;
-import SerialData.User;
+import api.BaseApi;
+import data.User;
 import com.github.javafaker.Faker;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import PagesLocators.*;
+import locators.*;
 import static org.junit.Assert.assertTrue;
 
 @DisplayName("Вход пользователя")

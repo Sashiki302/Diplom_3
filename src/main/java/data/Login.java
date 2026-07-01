@@ -1,4 +1,4 @@
-package SerialData;
+package data;
 
 public class Login {
     private String email;

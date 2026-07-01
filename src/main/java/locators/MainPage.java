@@ -1,4 +1,4 @@
-package PagesLocators;
+package locators;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,6 @@ public class MainPage {
     private final By bunsTab = By.xpath(".//span[text()='Булки']/parent::div");
     private final By saucesTab = By.xpath(".//span[text()='Соусы']/parent::div");
     private final By nachinkiTab = By.xpath(".//span[text()='Начинки']/parent::div");
-    private final By activeTab = By.xpath(".//div[contains(@class, 'tab_type_current')]//span");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -58,7 +57,8 @@ public class MainPage {
     }
 
     @Step("Получаем название активной вкладки конструктора с ожиданием")
-    public String getActiveConstructor() {
-        return driver.findElement(activeTab).getText();
+    public String getActiveConstructor(String waitText) {
+        By activeWait = By.xpath("//span[contains(text(), '" + waitText + "')]");
+        return driver.findElement(activeWait).getText();
     }
 }

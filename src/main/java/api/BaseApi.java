@@ -1,8 +1,8 @@
-package Api;
+package api;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
-import SerialData.*;
+import data.*;
 
 public class BaseApi {
     private static final String BASE_URL = "https://stellarburgers.education-services.ru";

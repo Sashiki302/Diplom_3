@@ -1,4 +1,4 @@
-import SerialData.Login;
+import data.Login;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -6,8 +6,8 @@ import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import Api.BaseApi;
-import PagesLocators.Register;
+import api.BaseApi;
+import locators.Register;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
