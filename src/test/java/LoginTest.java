@@ -1,4 +1,5 @@
 import Api.BaseApi;
+import SerialData.User;
 import com.github.javafaker.Faker;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
@@ -23,7 +24,7 @@ public class LoginTest extends BrowsersTest {
         email = faker.internet().emailAddress();
         password = faker.internet().password(6, 12);
 
-        Response response = apiUser.register(email, password, faker.name().firstName());
+        Response response = apiUser.register(new User(email, password, faker.name().firstName()));
         accessToken = response.path("accessToken");
     }
 

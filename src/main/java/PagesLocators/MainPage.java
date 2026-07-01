@@ -2,6 +2,9 @@ package PagesLocators;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class MainPage {
     private final WebDriver driver;
@@ -41,20 +44,20 @@ public class MainPage {
 
     @Step("Переходим к разделу Булки")
     public void clickBuns() {
-        driver.findElement(bunsTab).click();
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(bunsTab)).click();
     }
 
     @Step("Переходим к разделу Соусы")
     public void clickSauces() {
-        driver.findElement(saucesTab).click();
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(saucesTab)).click();
     }
 
     @Step("Переходим к разделу Начинки")
     public void clickNachinki() {
-        driver.findElement(nachinkiTab).click();
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.elementToBeClickable(nachinkiTab)).click();
     }
 
-    @Step("Получаем название активной вкладки конструктора")
+    @Step("Получаем название активной вкладки конструктора с ожиданием")
     public String getActiveConstructor() {
         return driver.findElement(activeTab).getText();
     }

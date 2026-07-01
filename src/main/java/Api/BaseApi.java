@@ -1,28 +1,29 @@
 package Api;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
+import SerialData.*;
 
 public class BaseApi {
     private static final String BASE_URL = "https://stellarburgers.education-services.ru";
 
-    public Response register(String email, String password, String name) {
-        String body = String.format("{\"email\": \"%s\", \"password\": \"%s\", \"name\": \"%s\"}", email, password, name);
+    @Step ("Регистрируем пользователя")
+    public Response register(User user) {
         return given()
                 .baseUri(BASE_URL)
                 .header("Content-type", "application/json")
-                .body(body)
+                .body(user)
                 .post("/api/auth/register");
     }
-
-    public Response login(String email, String password) {
-        String body = String.format("{\"email\": \"%s\", \"password\": \"%s\"}", email, password);
+    @Step ("Авторизуем пользователя")
+    public Response login(Login login) {
         return given()
                 .baseUri(BASE_URL)
                 .header("Content-type", "application/json")
-                .body(body)
+                .body(login)
                 .post("/api/auth/login");
     }
-
+    @Step ("Удаляем созданного пользователя")
     public void delete(String accessToken) {
         if (accessToken != null) {
             given()

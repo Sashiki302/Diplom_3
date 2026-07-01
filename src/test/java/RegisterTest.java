@@ -1,3 +1,4 @@
+import SerialData.Login;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -31,7 +32,7 @@ public class RegisterTest extends BrowsersTest {
     @After
     public void cleanUp() {
         if (password != null) {
-            Response loginResponse = apiClient.login(email, password);
+            Response loginResponse = apiClient.login(new Login(email, password));
             String accessToken = loginResponse.path("accessToken");
             apiClient.delete(accessToken);
         }
